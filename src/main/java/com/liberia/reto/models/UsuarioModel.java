@@ -1,4 +1,4 @@
-package com.liberia.reto.controllers;
+package com.liberia.reto.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
