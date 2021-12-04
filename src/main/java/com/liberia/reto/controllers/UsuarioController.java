@@ -8,27 +8,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping(path="/api/v1/user")
+@RequestMapping("/api/v1/user")
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping("/api/v1/user/{id}")
+    @GetMapping()
     public ArrayList<UsuarioModel> getUsers(){
         return usuarioService.getUser();
     }
+
+    // @GetMapping("/{id}")
+    // public ArrayList<UsuarioModel> getUsers(){
+    //     return usuarioService.getUser();
+    // }
 
     @PostMapping()
     public UsuarioModel saveUser(@RequestBody UsuarioModel user){
         return this.usuarioService.saveUser(user);
     }
 
-    @GetMapping("/api/v1/id")
+    @GetMapping("/id")
     public ArrayList<UsuarioModel> getByDocumento(@RequestParam("documento") int documento){
         return this.usuarioService.searchByDocument(documento);
     }
 
-    @DeleteMapping(path = "/api/v1/delete/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public String deletUserId(@PathVariable("id") Long id){
         boolean ok = this.usuarioService.deletUser(id);
         if (ok){
