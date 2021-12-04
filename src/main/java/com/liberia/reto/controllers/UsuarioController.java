@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping(path="/api/v1/user")
 public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @GetMapping(path = "/api/v1/user/{id}")
+    @GetMapping("/api/v1/user/{id}")
     public ArrayList<UsuarioModel> getUsers(){
         return usuarioService.getUser();
     }
